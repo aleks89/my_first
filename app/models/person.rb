@@ -5,9 +5,9 @@ class Person < ActiveRecord::Base
 
 	before_save :cleanup
 
-	scope :qwe, select('*')
-	scope :qweqwe, lambda {|id| where(primary_key=>id)}
-	scope :qweqweqwe, qwe.order("last_name ASC")
+	scope :all_lazy, select('*')
+	scope :find_lazy, lambda {|id| where(primary_key=>id)}
+	scope :all_ordered_last, all_lazy.order("last_name ASC")
 
 	def name
 		"#{:first_name} #{:last_name}"
