@@ -5,8 +5,8 @@ module PeopleHelper
     link_to_icon('show', project),
     link_to_icon('edit', edit_project_path(project)),
     link_to_icon('destroy', project, {
-      :confirm=>'Are you sure?',
-      :method=>:delete })
+      :confirm => 'Are you sure?',
+      :method => :delete })
       ].join(' ').html_safe
     end
   end
