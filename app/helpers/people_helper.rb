@@ -9,11 +9,6 @@ module PeopleHelper
 					:confirm=>'Are you sure?',
 					:method=>:delete })
 			].join(' ')
-
 		end
 	end
-
-
-
-
 end
