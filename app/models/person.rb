@@ -1,5 +1,8 @@
 class Person < ActiveRecord::Base
 
+  has_many :roles
+  has_many :projects, :through => :roles
+
   validates :first_name, presence: true
   validates :last_name, presence: true
 
@@ -10,8 +13,10 @@ class Person < ActiveRecord::Base
   scope :all_ordered_last, all_lazy.order("last_name ASC")
 
   def name
-    "#{:first_name} #{:last_name}"
+    "#{first_name} #{last_name}"
   end
+  
+  private
 
   def cleanup
 

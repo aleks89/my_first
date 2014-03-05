@@ -1,6 +1,8 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
+  respond_to :html, :xml, :json
+
   # GET /projects
   # GET /projects.json
   def index
@@ -15,26 +17,19 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+    respond_with @project
   end
 
   # GET /projects/1/edit
   def edit
+    @project=Project.find(params[:id])
   end
 
   # POST /projects
   # POST /projects.json
   def create
     @project = Project.new(project_params)
-
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @project }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
-    end
+    respond_with @project
   end
 
   # PATCH/PUT /projects/1
