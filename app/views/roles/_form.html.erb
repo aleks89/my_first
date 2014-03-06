@@ -1,4 +1,8 @@
 <%= semantic_form_for [@role.project, @role] do |form| %>
-<%= form.inputs %>
-<%= form.buttons %>
+  <%= form.inputs "Role" do%>
+    <%= form.input :title %>
+    <%= form.input :person %>
+    <%= form.input :status %>
+  <% end %>
+  <%= form.buttons %>
 <% end %>
